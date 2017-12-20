@@ -14,7 +14,7 @@ protocol AddNoteViewControllerDelegate: class {
     func addNoteViewController(_ controller: AddNoteViewController, didFinishEditing item: NoteItem)
 }
 
-class AddNoteViewController: UITableViewController, UITextFieldDelegate {
+class AddNoteViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate {
     
     var itemToEdit: NoteItem?
     
@@ -53,6 +53,8 @@ class AddNoteViewController: UITableViewController, UITextFieldDelegate {
         
         return true
     }
+    
+    
     ////////////////////////////////////
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -61,13 +63,30 @@ class AddNoteViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        textView.delegate = self
         if let item = itemToEdit {
             title = "Edit Item"
             textField.text = item.noteTitle
             textView.text = item.noteContent
             doneBarButton.isEnabled = true /////ENABLE DONE IN EDIT MODE
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
 
 }
