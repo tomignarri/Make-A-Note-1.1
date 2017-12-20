@@ -14,7 +14,7 @@ protocol AddNoteViewControllerDelegate: class {
     func addNoteViewController(_ controller: AddNoteViewController, didFinishEditing item: NoteItem)
 }
 
-class AddNoteViewController: UITableViewController, UITextFieldDelegate, UITextViewDelegate {
+class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     var itemToEdit: NoteItem?
     
@@ -57,13 +57,16 @@ class AddNoteViewController: UITableViewController, UITextFieldDelegate, UITextV
     
     ////////////////////////////////////
     
+    /*  ROMOVED BECAUSE OF ERROR
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.delegate = self
+        self.textField.delegate = self
+        self.textView.delegate = self
         if let item = itemToEdit {
             title = "Edit Item"
             textField.text = item.noteTitle
