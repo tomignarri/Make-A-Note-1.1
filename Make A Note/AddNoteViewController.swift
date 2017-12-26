@@ -16,6 +16,8 @@ protocol AddNoteViewControllerDelegate: class {
 
 class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
+    // E5FD91 : NAV BAR COLOR
+    
     var itemToEdit: NoteItem?
     
     @IBOutlet weak var textField: UITextField!
@@ -63,12 +65,13 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     }
     */
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.textField.delegate = self
         self.textView.delegate = self
         if let item = itemToEdit {
-            title = "Edit Item"
+            title = "Edit Note"
             textField.text = item.noteTitle
             textView.text = item.noteContent
             doneBarButton.isEnabled = true /////ENABLE DONE IN EDIT MODE
@@ -79,6 +82,7 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         self.view.endEditing(true)
     }
     
+    /* KEYBOARD DISMISSAL FUNTIONALITY
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -91,5 +95,6 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         }
         return true
     }
-
+     */
+    
 }

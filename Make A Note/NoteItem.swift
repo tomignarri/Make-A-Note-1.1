@@ -9,6 +9,7 @@
 import Foundation
 
 class NoteItem: NSObject, NSCoding {
+    
     var noteTitle = ""
     var noteContent = ""
 

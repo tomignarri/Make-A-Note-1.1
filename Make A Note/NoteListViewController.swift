@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NoteListViewController: UITableViewController, AddNoteViewControllerDelegate {
+class NoteListViewController: UITableViewController, AddNoteViewControllerDelegate, UINavigationControllerDelegate {
     
     var items: [NoteItem]
     
@@ -88,6 +88,7 @@ class NoteListViewController: UITableViewController, AddNoteViewControllerDelega
     }
     /////////////////
     
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -101,6 +102,8 @@ class NoteListViewController: UITableViewController, AddNoteViewControllerDelega
         super.viewDidLoad()
 
     }
+    
+    
     
     //DIRECTORY SAVING FUNCTIONALITY
     func documentsDirectory() -> URL {
