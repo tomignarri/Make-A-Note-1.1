@@ -23,6 +23,8 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    @IBOutlet weak var textColor: UIBarButtonItem!
+    
 
     weak var delegate: AddNoteViewControllerDelegate?
     
@@ -30,11 +32,13 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         if let item = itemToEdit {
         item.noteTitle = textField.text!
         item.noteContent = textView.text!
+        item.textColor = textView.textColor!
         delegate?.addNoteViewController(self, didFinishEditing: item)
         } else {
             let item = NoteItem()
             item.noteTitle = textField.text!
             item.noteContent = textView.text!
+            item.textColor = textView.textColor!
             delegate?.addNoteViewController(self, didFinishAdding: item)
         }
     }
@@ -42,6 +46,12 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     @IBAction func cancel(_ sender: Any) {
         delegate?.addNoteViewControllerDidCancel(self)
     }
+    
+    @IBAction func changeTextColor(_ sender: Any) {
+        textView.textColor = UIColor.blue
+        //MAYBE THIS FUNCTION SHOULD USE DID FINISH ADDING PROT? OR MAYBE IT NEEDS ITS OWN FUNCTION
+    }
+    
     
     //RESEARCH THIS NEXT TIME YOU'RE WORKING
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -70,10 +80,12 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         super.viewDidLoad()
         self.textField.delegate = self
         self.textView.delegate = self
+        textView.textColor = UIColor.black
         if let item = itemToEdit {
             title = "Edit Note"
             textField.text = item.noteTitle
             textView.text = item.noteContent
+            textView.textColor = item.textColor
             doneBarButton.isEnabled = true /////ENABLE DONE IN EDIT MODE
         }
     }
