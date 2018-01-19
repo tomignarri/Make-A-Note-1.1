@@ -11,6 +11,7 @@
 		9A6E01E71F2A6589002D5769 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6E01E51F2A6589002D5769 /* Main.storyboard */; };
 		9A6E01E91F2A6589002D5769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A6E01E81F2A6589002D5769 /* Assets.xcassets */; };
 		9A6E01EC1F2A6589002D5769 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6E01EA1F2A6589002D5769 /* LaunchScreen.storyboard */; };
+		9A7DFEDC1FF59AC600F76ADA /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DFEDB1FF59AC600F76ADA /* ColorPickerViewController.swift */; };
 		9AB6A2511F3287CB00AFC842 /* NoteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB6A2501F3287CB00AFC842 /* NoteItem.swift */; };
 		9AF0CC1F1F2FCF36008034A4 /* NoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF0CC1E1F2FCF36008034A4 /* NoteListViewController.swift */; };
 		9AFA1EE01F3401F100D1BCE4 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA1EDF1F3401F100D1BCE4 /* AddNoteViewController.swift */; };
@@ -23,6 +24,7 @@
 		9A6E01E81F2A6589002D5769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A6E01EB1F2A6589002D5769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A6E01ED1F2A6589002D5769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A7DFEDB1FF59AC600F76ADA /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorPickerViewController.swift; path = ../ColorPickerViewController.swift; sourceTree = "<group>"; };
 		9AB6A2501F3287CB00AFC842 /* NoteItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteItem.swift; sourceTree = "<group>"; };
 		9AF0CC1E1F2FCF36008034A4 /* NoteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteListViewController.swift; sourceTree = "<group>"; };
 		9AFA1EDF1F3401F100D1BCE4 /* AddNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				9A6E01E11F2A6589002D5769 /* AppDelegate.swift */,
 				9AF0CC1E1F2FCF36008034A4 /* NoteListViewController.swift */,
 				9AFA1EDF1F3401F100D1BCE4 /* AddNoteViewController.swift */,
+				9A7DFEDB1FF59AC600F76ADA /* ColorPickerViewController.swift */,
 				9AB6A2501F3287CB00AFC842 /* NoteItem.swift */,
 				9A6E01E51F2A6589002D5769 /* Main.storyboard */,
 				9A6E01E81F2A6589002D5769 /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A7DFEDC1FF59AC600F76ADA /* ColorPickerViewController.swift in Sources */,
 				9AFA1EE01F3401F100D1BCE4 /* AddNoteViewController.swift in Sources */,
 				9AB6A2511F3287CB00AFC842 /* NoteItem.swift in Sources */,
 				9AF0CC1F1F2FCF36008034A4 /* NoteListViewController.swift in Sources */,

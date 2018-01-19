@@ -16,6 +16,8 @@ class NoteListViewController: UITableViewController, AddNoteViewControllerDelega
         items = [NoteItem]()
         
         super.init(coder: aDecoder)
+        //print("Documents folder is \(documentsDirectory())")
+        //print("Data file path is \(dataFilePath())")
         loadNotelistItems()
     }
     
@@ -78,6 +80,12 @@ class NoteListViewController: UITableViewController, AddNoteViewControllerDelega
         return cell
     }
     
+    func configureText(for cell: UITableViewCell, with item: NoteItem) {
+        let label = cell.viewWithTag(1) as! UILabel
+        label.text = item.noteTitle
+    }
+    
+    
     //DELETING A CELL
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -93,10 +101,6 @@ class NoteListViewController: UITableViewController, AddNoteViewControllerDelega
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func configureText(for cell: UITableViewCell, with item: NoteItem) {
-        let label = cell.viewWithTag(1) as! UILabel
-        label.text = item.noteTitle
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +117,9 @@ class NoteListViewController: UITableViewController, AddNoteViewControllerDelega
     func dataFilePath() -> URL {
         return documentsDirectory().appendingPathComponent("Notelists.plist")
     }
+    
+    
+    
     func saveNotelistItems() {
         let data = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWith: data)

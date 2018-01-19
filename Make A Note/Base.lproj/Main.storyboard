@@ -65,7 +65,7 @@
         <!--Add Note-->
         <scene sceneID="vwy-9e-viZ">
             <objects>
-                <viewController id="wVC-nA-vWP" customClass="AddNoteViewController" customModule="Make_A_Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNote" id="wVC-nA-vWP" customClass="AddNoteViewController" customModule="Make_A_Note" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hZI-j5-Nvh"/>
                         <viewControllerLayoutGuide type="bottom" id="ZAE-Mb-VfH"/>
@@ -92,9 +92,14 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.89803921568627454" green="0.99215686274509807" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
-                                    <barButtonItem title="Change Text Color" id="afc-xI-wab">
+                                    <barButtonItem title="Change Text Color" width="257.5" id="afc-xI-wab">
                                         <connections>
                                             <action selector="changeTextColor:" destination="wVC-nA-vWP" id="uCV-9O-Dnz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="edit" id="M2y-zs-gno">
+                                        <connections>
+                                            <segue destination="YJK-O2-c5s" kind="show" id="mcw-gJ-qMf"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -136,6 +141,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZUQ-ZA-XVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1760.8" y="-111.0944527736132"/>
+        </scene>
+        <!--Color Picker View Controller-->
+        <scene sceneID="INg-p5-qqc">
+            <objects>
+                <tableViewController storyboardIdentifier="ColorPicker" id="YJK-O2-c5s" customClass="ColorPickerViewController" customModule="Make_A_Note" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7E7-OT-cgT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ColorItem" id="1C7-az-maI">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1C7-az-maI" id="g9V-73-dra">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuM-gh-L0I">
+                                            <rect key="frame" x="16" y="11" width="343" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zuM-gh-L0I" firstAttribute="trailing" secondItem="g9V-73-dra" secondAttribute="trailingMargin" id="2yd-ok-3oU"/>
+                                        <constraint firstItem="zuM-gh-L0I" firstAttribute="top" secondItem="g9V-73-dra" secondAttribute="topMargin" id="FZd-po-TfY"/>
+                                        <constraint firstItem="zuM-gh-L0I" firstAttribute="leading" secondItem="g9V-73-dra" secondAttribute="leadingMargin" id="R0N-hk-v1z"/>
+                                        <constraint firstItem="zuM-gh-L0I" firstAttribute="bottom" secondItem="g9V-73-dra" secondAttribute="bottomMargin" id="fjm-sx-Lcf"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YJK-O2-c5s" id="mxd-Ng-59B"/>
+                            <outlet property="delegate" destination="YJK-O2-c5s" id="dSe-bh-vn0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="vmT-4C-OhQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="CzD-0D-5QY">
+                            <connections>
+                                <action selector="done:" destination="YJK-O2-c5s" id="sRC-Bz-iRn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneBarButton" destination="CzD-0D-5QY" id="pi2-Gj-e1R"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5VK-qI-DSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1761" y="672"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j64-ak-QFX">

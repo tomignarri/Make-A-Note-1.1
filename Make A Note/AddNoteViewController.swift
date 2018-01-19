@@ -14,18 +14,20 @@ protocol AddNoteViewControllerDelegate: class {
     func addNoteViewController(_ controller: AddNoteViewController, didFinishEditing item: NoteItem)
 }
 
-class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, PizzaDelegate {
+    
     
     // E5FD91 : NAV BAR COLOR
     
+    var colorIdentifier = "color"
     var itemToEdit: NoteItem?
+    
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var textColor: UIBarButtonItem!
     
-
     weak var delegate: AddNoteViewControllerDelegate?
     
     @IBAction func done(_ sender: Any) {
@@ -42,13 +44,31 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             delegate?.addNoteViewController(self, didFinishAdding: item)
         }
     }
-
+    
     @IBAction func cancel(_ sender: Any) {
         delegate?.addNoteViewControllerDidCancel(self)
     }
     
-    @IBAction func changeTextColor(_ sender: Any) {
+    //COLOR PICKER PROTOCOL FULFILMENT///////////////////////////
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ColorPickerViewController {
+            destination.delegate = self
+        }
+    }
+    func onPizzaReady(type: String)
+    {
+        print("Pizza ready. The best pizza of all pizzas is... \(type)")
         textView.textColor = UIColor.blue
+        print(colorIdentifier)
+        // let item = item to edit
+        // if type is green{item.color = text.green.color}
+    }
+    /////////////////////////////////////////////////////////////
+    
+    @IBAction func changeTextColor(_ sender: Any) {
+        
+        textView.textColor = UIColor.blue
+        print(colorIdentifier)
         //MAYBE THIS FUNCTION SHOULD USE DID FINISH ADDING PROT? OR MAYBE IT NEEDS ITS OWN FUNCTION
     }
     
@@ -65,8 +85,6 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         
         return true
     }
-    
-    
     ////////////////////////////////////
     
     /*  ROMOVED BECAUSE OF ERROR
