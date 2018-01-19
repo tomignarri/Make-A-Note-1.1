@@ -55,13 +55,9 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             destination.delegate = self
         }
     }
-    func onPizzaReady(type: String)
+    func onPizzaReady(type: UIColor)
     {
-        print("Pizza ready. The best pizza of all pizzas is... \(type)")
-        textView.textColor = UIColor.blue
-        print(colorIdentifier)
-        // let item = item to edit
-        // if type is green{item.color = text.green.color}
+        textView.textColor = type
     }
     /////////////////////////////////////////////////////////////
     

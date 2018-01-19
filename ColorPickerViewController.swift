@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PizzaDelegate {
-    func onPizzaReady(type: String)
+    func onPizzaReady(type: UIColor)
 }
 
 class ColorPickerViewController: UITableViewController {
@@ -48,17 +48,17 @@ class ColorPickerViewController: UITableViewController {
         if indexPath.row == 0 {
             //colorPicked = "blue"
             //print("is", colorPicked)
-            delegate?.onPizzaReady(type: "Pizza di Mama") //type is green string (or color type if possible)
+            delegate?.onPizzaReady(type: UIColor.blue) //type is green string (or color type if possible)
         }
         if indexPath.row == 1 {
             //colorPicked = "red"
             //print("is", colorPicked)
-            delegate?.onPizzaReady(type: "Pizza di Mama") //type is green string (or color type if possible)
+            delegate?.onPizzaReady(type: UIColor.red) //type is green string (or color type if possible)
         }
         if indexPath.row == 2 {
             //colorPicked = "green"
             //print("is", colorPicked)
-            delegate?.onPizzaReady(type: "Pizza di Mama") //type is green string (or color type if possible)
+            delegate?.onPizzaReady(type: UIColor.green) //type is green string (or color type if possible)
         }
     }
     
