@@ -16,7 +16,6 @@ protocol AddNoteViewControllerDelegate: class {
 
 class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, PizzaDelegate {
     
-    
     // E5FD91 : NAV BAR COLOR
     
     var colorIdentifier = "color"
@@ -61,6 +60,8 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     }
     /////////////////////////////////////////////////////////////
     
+    
+    
     @IBAction func changeTextColor(_ sender: Any) {
         
         textView.textColor = UIColor.blue
@@ -72,23 +73,20 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     //RESEARCH THIS NEXT TIME YOU'RE WORKING
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let oldText = textField.text! as NSString
-        
-        
+
         let newText = oldText.replacingCharacters(in: range, with: string) as NSString
         //let newTextView = oldTextView.replacingCharacters(in: range, with: string) as NSString
         
         doneBarButton.isEnabled = (newText.length > 0)
-        
         return true
     }
     ////////////////////////////////////
     
-    /*  ROMOVED BECAUSE OF ERROR
+    /*  ROMOVED BECAUSE OF ERROR (probably b/c i'm not using a UItableview)
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
     */
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

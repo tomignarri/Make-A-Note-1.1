@@ -14,23 +14,10 @@ protocol PizzaDelegate {
 
 class ColorPickerViewController: UITableViewController {
 
-    
-    @IBOutlet weak var doneBarButton: UIBarButtonItem!
-    
-    
     var colorPicked = ""
-    var colors = ["blue", "red", "green"]
+    var colors = ["Blue", "Red", "Green"]
     
-    /////////////////////////////////
     var delegate:PizzaDelegate?
-    /////////////////////////////////
-    
-    @IBAction func done(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-        //assign value of selected row to NoteItem.textColor
-    }
-    
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return colors.count
@@ -44,21 +31,17 @@ class ColorPickerViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //THIS METHOD CAN'T RETURN A STRING...WHY IS THAT?
+        
+        //THIS METHOD CAN'T RETURN A STRING...WHY?
+        
         if indexPath.row == 0 {
-            //colorPicked = "blue"
-            //print("is", colorPicked)
-            delegate?.onPizzaReady(type: UIColor.blue) //type is green string (or color type if possible)
+            delegate?.onPizzaReady(type: UIColor.blue)
         }
         if indexPath.row == 1 {
-            //colorPicked = "red"
-            //print("is", colorPicked)
-            delegate?.onPizzaReady(type: UIColor.red) //type is green string (or color type if possible)
+            delegate?.onPizzaReady(type: UIColor.red)
         }
         if indexPath.row == 2 {
-            //colorPicked = "green"
-            //print("is", colorPicked)
-            delegate?.onPizzaReady(type: UIColor.green) //type is green string (or color type if possible)
+            delegate?.onPizzaReady(type: UIColor.green)
         }
     }
     

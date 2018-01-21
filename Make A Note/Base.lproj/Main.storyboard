@@ -77,11 +77,10 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mz-BU-QAL">
                                 <rect key="frame" x="16" y="117" width="343" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Note Title" placeholder="Title of Note" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fbZ-Hz-y1s">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title of Note" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fbZ-Hz-y1s">
                                 <rect key="frame" x="16" y="79" width="343" height="28"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
@@ -179,16 +178,7 @@
                             <outlet property="delegate" destination="YJK-O2-c5s" id="dSe-bh-vn0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="vmT-4C-OhQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="CzD-0D-5QY">
-                            <connections>
-                                <action selector="done:" destination="YJK-O2-c5s" id="sRC-Bz-iRn"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="doneBarButton" destination="CzD-0D-5QY" id="pi2-Gj-e1R"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="vmT-4C-OhQ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5VK-qI-DSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
