@@ -11,18 +11,18 @@ import UIKit
 
 class NoteItem: NSObject, NSCoding {
     
-    var noteTitle = ""
+    //var noteTitle = ""
     var noteContent = ""
     var textColor: UIColor = UIColor.black
 
     //CONFORMING TO NSCODING
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(noteTitle, forKey: "noteTitle")
+        //aCoder.encode(noteTitle, forKey: "noteTitle")
         aCoder.encode(noteContent, forKey: "noteContent")
         aCoder.encode(textColor, forKey: "textColor")
     }
     required init?(coder aDecoder: NSCoder) {
-        noteTitle = aDecoder.decodeObject(forKey: "noteTitle") as! String
+        //noteTitle = aDecoder.decodeObject(forKey: "noteTitle") as! String
         noteContent = aDecoder.decodeObject(forKey: "noteContent") as! String
         textColor = aDecoder.decodeObject(forKey: "textColor") as! UIColor
         super.init()
@@ -30,5 +30,4 @@ class NoteItem: NSObject, NSCoding {
     override init() {
         super.init()
     }
-    //CONFORMING TO NSCODING
 }

@@ -82,7 +82,7 @@ class NoteListViewController: UITableViewController, AddNoteViewControllerDelega
     
     func configureText(for cell: UITableViewCell, with item: NoteItem) {
         let label = cell.viewWithTag(1) as! UILabel
-        label.text = item.noteTitle
+        label.text = item.noteContent
     }
     
     
@@ -96,18 +96,14 @@ class NoteListViewController: UITableViewController, AddNoteViewControllerDelega
     }
     /////////////////
     
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-    
-    
     
     //DIRECTORY SAVING FUNCTIONALITY
     func documentsDirectory() -> URL {
@@ -117,8 +113,6 @@ class NoteListViewController: UITableViewController, AddNoteViewControllerDelega
     func dataFilePath() -> URL {
         return documentsDirectory().appendingPathComponent("Notelists.plist")
     }
-    
-    
     
     func saveNotelistItems() {
         let data = NSMutableData()
