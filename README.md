@@ -1,22 +1,18 @@
-## This is an md file
-
-
-
-# IperBot
+# Make A Note
 
 ## General info
-
+Make A Note is a notetaking app for iOS, created on XCode
 
 ## Technologies
-
-## Features
-
-
-## To-do list:
-
+* XCode
+* Swift
 
 ## Contributors
+Developemnt:
+Tom Ignarri
 
+Logo:
+Julia Ditro
 
 ## Contact
 tom.ignarri@gmail.com
