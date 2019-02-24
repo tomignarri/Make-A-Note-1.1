@@ -13,15 +13,12 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     var colorIdentifier = "color"
     var itemToEdit: NoteItem?
     
-    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
-    @IBOutlet weak var textColor: UIBarButtonItem!
     
     weak var delegate: AddNoteViewControllerDelegate?
     
-    //On pressing done, set content of text view and current text color to
-    //NoteItem data model
+    // On pressing done, set content of text view and current text color to NoteItem object.
     @IBAction func done(_ sender: Any) {
         if let item = itemToEdit {
         item.noteContent = textView.text!
@@ -35,55 +32,46 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         }
     }
     
-    //cancel addnote window function
+    // Cancel a note that is in progress.
     @IBAction func cancel(_ sender: Any) {
         delegate?.addNoteViewControllerDidCancel(self)
     }
     
-    //segue to cpvc
+    // Segue to ColorPickerVC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ColorPickerViewController {
-            //AddNoteViewController is delegate of cpvc
+            // AddNoteViewController is delegate of cpvc.
             destination.delegate = self
         }
     }
     
-    //protocol conforming function from cpvc protocol
-    //takes UIColor from didSelectRowAt function in cpvc
+    // Function to conform to ColorPickerVC protocol.
     func onColorReady(type: UIColor) {
         textView.textColor = type
     }
     
-    //bar button item to be deleted
-    @IBAction func changeTextColor(_ sender: Any) {
-    }
-    
+    // Done button should only be enabled if there soemthing has been written.
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let oldText = textField.text! as NSString
-
         let newText = oldText.replacingCharacters(in: range, with: string) as NSString
-        //let newTextView = oldTextView.replacingCharacters(in: range, with: string) as NSString
-        
         doneBarButton.isEnabled = (newText.length > 0)
         return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.textField.delegate = self
         self.textView.delegate = self
         textView.textColor = UIColor.black
         if let item = itemToEdit {
             title = "Edit Note"
-            //textField.text = item.noteTitle
             textView.text = item.noteContent
             textView.textColor = item.textColor
-            doneBarButton.isEnabled = true ///ENABLE DONE IN EDIT MODE
+            doneBarButton.isEnabled = true
         }
     }
     
+    // Remove keyboard after tapping outside text view.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
 }
