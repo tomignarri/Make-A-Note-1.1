@@ -1,11 +1,3 @@
-//
-//  ColorPickerViewController.swift
-//  Make A Note
-//
-//  Created by Thomas Ignarri on 12/28/17.
-//  Copyright © 2017 Thomas Ignarri. All rights reserved.
-//
-
 import UIKit
 
 protocol ColorDelegate {
@@ -33,7 +25,6 @@ class ColorPickerViewController: UITableViewController {
     
     //cell selection that sets text color
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         if indexPath.row == 0 {
             delegate?.onColorReady(type: UIColor.blue)
         }

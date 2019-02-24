@@ -1,11 +1,3 @@
-//
-//  AddNoteViewController.swift
-//  Make A Note
-//
-//  Created by Thomas Ignarri on 8/3/17.
-//  Copyright © 2017 Thomas Ignarri. All rights reserved.
-//
-
 import UIKit
 
 protocol AddNoteViewControllerDelegate: class {
@@ -17,7 +9,6 @@ protocol AddNoteViewControllerDelegate: class {
 class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, ColorDelegate {
     
     // E5FD91 : NAV BAR COLOR
-    // cpvc = ColorPickerViewController
     
     var colorIdentifier = "color"
     var itemToEdit: NoteItem?
@@ -33,13 +24,11 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     //NoteItem data model
     @IBAction func done(_ sender: Any) {
         if let item = itemToEdit {
-        //item.noteTitle = textField.text!
         item.noteContent = textView.text!
         item.textColor = textView.textColor!
         delegate?.addNoteViewController(self, didFinishEditing: item)
         } else {
             let item = NoteItem()
-            //item.noteTitle = textField.text!
             item.noteContent = textView.text!
             item.textColor = textView.textColor!
             delegate?.addNoteViewController(self, didFinishAdding: item)
@@ -67,11 +56,8 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     
     //bar button item to be deleted
     @IBAction func changeTextColor(_ sender: Any) {
-        //textView.textColor = UIColor.blue
-        //print(colorIdentifier)
     }
     
-    //RESEARCH THIS NEXT TIME YOU'RE WORKING
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let oldText = textField.text! as NSString
 
@@ -81,12 +67,6 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         doneBarButton.isEnabled = (newText.length > 0)
         return true
     }
-    
-    /*  ROMOVED BECAUSE OF ERROR (probably b/c i'm not using a UItableview)
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
-    }
-    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,20 +85,5 @@ class AddNoteViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    /* KEYBOARD DISMISSAL FUNTIONALITY: kept just in case
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
-    }
-     */
     
 }
