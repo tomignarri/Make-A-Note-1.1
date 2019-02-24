@@ -4,7 +4,8 @@
 Make A Note is a notetaking app for iOS, created on XCode.
 Write notes and save them to your iOS device.
 
-https://itunes.apple.com/us/app/make-a-note/id1387915516?mt=8
+[Check if out here on Itunes.](https://itunes.apple.com/us/app/make-a-note/id1387915516?mt=8)
+
 
 ## Technologies
 * XCode
